@@ -16,11 +16,14 @@ public class MainManager : MonoBehaviour
     private GameObject touchObj;
     private GameObject setScreen;
     private GameObject settingTitle;
+    private GameObject setCardTemp;
 
     //NCのタップ状況(0=通常時,1=通常時にタップされた時,2=拡大時にタップされた時)
     private int touchStatus = 0;
     //オブジェクトタップ状況(Link連続タップ制限用)
     private int tCount = 0;
+    //カードテンプレート番号(1:normal,2:leaf) 
+    private int cardTempCount = 0;
 
     private TextMesh ncText;
     private Transform ccTrans;
@@ -180,6 +183,16 @@ public class MainManager : MonoBehaviour
             }
         }
     }
+    public GameObject SetCardTemp {
+        get {
+            return setCardTemp;
+        }
+        set {
+            if (value != null) {
+                this.setCardTemp = value;
+            }
+        }
+    }
     //GameObject以外プロパティ
     public int TouchStatus {
         get {
@@ -237,7 +250,15 @@ public class MainManager : MonoBehaviour
             }
         }
     }
+    public int CardTempCount {
+        get {
+            return cardTempCount;
+        }
+        set {
+                this.cardTempCount = value;
+        }
 
+    }
 
 
 }

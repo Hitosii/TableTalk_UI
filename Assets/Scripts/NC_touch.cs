@@ -7,6 +7,8 @@ public class NC_touch : MonoBehaviour
     GameObject mmObj;
     MainManager mm;
     int p=0;//Activerメソッド連続呼び出し防止用
+    float time;
+    Vector3 Cscale, Bscale;
 
     private void Awake() {
         mmObj = GameObject.FindWithTag("MainManager");
@@ -23,6 +25,7 @@ public class NC_touch : MonoBehaviour
         mm.Link = GameObject.FindWithTag("Link");
         mm.SmallBut = GameObject.FindWithTag("SmallBut");
         mm.InfoTextObj = GameObject.FindWithTag("InfoText");
+        
 
         //コンポーネント取得
         mm.NcText = mm.Noun.GetComponent<TextMesh>();
@@ -35,9 +38,23 @@ public class NC_touch : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        float time = Time.deltaTime;
-            //Nounタップ時(拡大)
-            if ((mm.TouchStatus == 1)&&(mm.TouchObj.tag == "Noun")){
+            time = Time.deltaTime;
+
+        Vector3 normalBScale = new Vector3(3f * time, 6.5f * time, 0);
+        Vector3 normalCScale = new Vector3(3f * time, 6f * time, 0);
+        Vector3 leafBScale = new Vector3(3f * time, 6.5f * time, 0);
+        Vector3 leafCScale = new Vector3(3f * time, 6f * time, 0);
+        if(mm.CardTempCount == 1){
+             Cscale = normalCScale;
+            Bscale = normalBScale;
+        }else if(mm.CardTempCount == 2) {
+            Cscale = leafCScale;
+            Bscale = leafBScale;
+        }
+
+
+        //Nounタップ時(拡大)
+        if ((mm.TouchStatus == 1)&&(mm.TouchObj.tag == "Noun")){
                 //Border表示
                 mm.Border.SetActive(true);
                 //Picture表示
@@ -47,14 +64,15 @@ public class NC_touch : MonoBehaviour
                 }
                 //CardCase,Border拡大
                 if (mm.CcTrans.localScale.x <= 0.9f) {
-                    mm.CcTrans.localScale += new Vector3(3f * time, 2 * 3f * time, 0);
-                    mm.BorderTrans.localScale += new Vector3(3f * time, 2.2f * 3f * time, 0);
-                    //フォントサイズ拡大
+                    mm.CcTrans.localScale += new Vector3(Cscale.x, Cscale.y, 0);
+                    mm.BorderTrans.localScale += new Vector3(Bscale.x, Bscale.y, 0);
+                    //フォントサイズ拡大,アンカー:左上
                     mm.NcText.fontSize = 130;
+                    mm.NcText.anchor = TextAnchor.UpperLeft;
                 }
                 //Noun拡大時配置へ移動
-                if (mm.NounTrans.localPosition.x >= -3f) {
-                    mm.NounTrans.localPosition += new Vector3(-13.7f * time, 11f * time, 0);
+                if (mm.NounTrans.localPosition.x >= -3.7f) {
+                    mm.NounTrans.localPosition += new Vector3(-13.7f * time, 10f * time, 0);
                 }
             //SmallButタップ時(縮小)
             } else if ((mm.TouchStatus == 2)&&(mm.TouchObj.tag == "SmallBut")) {
@@ -64,14 +82,15 @@ public class NC_touch : MonoBehaviour
 
                 //CardCase,Border縮小
                 if (mm.CcTrans.localScale.x >= 0.3f) {
-                    mm.CcTrans.localScale -= new Vector3(3f * time, 2 * 3f * time, 0);
-                    mm.BorderTrans.localScale -= new Vector3(3f * time, 2.2f * 3f * time, 0);
-                    //フォントサイズ戻す
+                    mm.CcTrans.localScale -= new Vector3(Cscale.x,Cscale.y, 0);
+                    mm.BorderTrans.localScale -= new Vector3(Bscale.x,Bscale.y, 0);
+                    //フォントサイズ戻す,アンカー:中央
                     mm.NcText.fontSize = 110;
+                mm.NcText.anchor = TextAnchor.MiddleCenter;
                 }
                 //Noun通常時配置へ移動
                 if (mm.NounTrans.localPosition.x <= 0f) {
-                    mm.NounTrans.localPosition -= new Vector3(-13.7f * time, 11f * time, 0);
+                    mm.NounTrans.localPosition -= new Vector3(-13.7f * time, 10f * time, 0);
                 }
                 //予期しない値が入った場合、即座に縮小モードに切替
             } else if (mm.TouchStatus > 2) {

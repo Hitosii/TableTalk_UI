@@ -25,6 +25,7 @@ public class TouchSurvey : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
             //タップしたオブジェクトをTouchObjに格納
+            if(hit2d.collider.gameObject !=null)
             mm.TouchObj = hit2d.collider.gameObject;
 
             //Raycast可視化(デバッグ用)※3Dモード下でのみ可視

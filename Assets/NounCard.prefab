@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073778335675020996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: -0.1}
+  m_LocalPosition: {x: 0, y: 1.55, z: -0.1}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1073778336940966337}
@@ -227,7 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eab06e3330d2d45b72c870f6664e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mm: {fileID: 0}
   URL: http://www.metro.tokyo.jp/
 --- !u!1 &1073778336396054143
 GameObject:
@@ -356,7 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7652d33071d02ca4593d63383c063762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mm: {fileID: 0}
 --- !u!1 &1073778336543972520
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f9ee5013ea0c1409b101228c38b798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mm: {fileID: 0}
   iText: "\u4E16\u754C\u6700\u5927\u7D1A\u306E\u30E1\u30C8\u30ED\u30DD\u30EA\u30B9\u3067\u3042\u308A\u2026"
 --- !u!1 &1073778336861330370
 GameObject:
@@ -614,7 +611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c92ec1b6bcb5f4c8bf55fa0e3d83f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mm: {fileID: 0}
 --- !u!1 &1073778337238150748
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,8 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b203304ca50b7409c279b6c962cda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mm: {fileID: 0}
-  nText: "\u6771\u4EAC"
+  nText: "\u3042\u3042\u3042\u3042\u3042\u3042"
 --- !u!1 &1073778337252900300
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e9d938b12265c4fbca2b3d1db1b79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mm: {fileID: 0}
   pictures:
   - {fileID: 21300000, guid: 622244e7da4feef4783f7909a36bd816, type: 3}
   - {fileID: 21300000, guid: 6110e7bc3fc94a947808ed7fc6d92715, type: 3}

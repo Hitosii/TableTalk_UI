@@ -18,9 +18,11 @@ public class SettingScreen : MonoBehaviour
     {
         mm.SetScreen = GameObject.FindWithTag("SetScreen");
         mm.SettingTitle = GameObject.FindWithTag("SettingTitle");
+        mm.SetCardTemp = GameObject.FindWithTag("SetCardTemp");
         sc = GameObject.FindWithTag("SettingContents");//設定タイトル内の詳細文字
         sct = GameObject.FindWithTag("SettingContentsT");//設定タイトル文字
         setGear = GameObject.FindWithTag("SettingGear");//設定画面歯車
+
         s_Falser();
 
     }
@@ -58,6 +60,7 @@ public class SettingScreen : MonoBehaviour
         sc.SetActive(false);
         sct.SetActive(false);
         setGear.SetActive(false);
+        mm.SetCardTemp.SetActive(false);
     }
     //中身非アクティブ化メソッド
     void s_Activer() {
@@ -65,5 +68,6 @@ public class SettingScreen : MonoBehaviour
         sc.SetActive(true);
         sct.SetActive(true);
         setGear.SetActive(true);
+        mm.SetCardTemp.SetActive(true);
     }
 }
