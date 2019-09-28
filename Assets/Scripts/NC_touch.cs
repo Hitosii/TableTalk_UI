@@ -72,7 +72,7 @@ public class NC_touch : MonoBehaviour
                 }
                 //Noun拡大時配置へ移動
                 if (mm.NounTrans.localPosition.x >= -3.7f) {
-                    mm.NounTrans.localPosition += new Vector3(-13.7f * time, 10f * time, 0);
+                    mm.NounTrans.localPosition += new Vector3(-19f * time, 14f * time, 0);
                 }
             //SmallButタップ時(縮小)
             } else if ((mm.TouchStatus == 2)&&(mm.TouchObj.tag == "SmallBut")) {
@@ -90,7 +90,7 @@ public class NC_touch : MonoBehaviour
                 }
                 //Noun通常時配置へ移動
                 if (mm.NounTrans.localPosition.x <= 0f) {
-                    mm.NounTrans.localPosition -= new Vector3(-13.7f * time, 10f * time, 0);
+                    mm.NounTrans.localPosition -= new Vector3(-19f * time, 14f * time, 0);
                 }
                 //予期しない値が入った場合、即座に縮小モードに切替
             } else if (mm.TouchStatus > 2) {

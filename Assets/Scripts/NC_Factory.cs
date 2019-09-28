@@ -7,7 +7,9 @@ public class NC_Factory : MonoBehaviour
     public GameObject NcPrefab;
 
     private void Start() {
+        //二秒間隔で生成
         //InvokeRepeating("ncInstantiate", 1.0f, 2.0f);
+        //起動時に一回のみ生成
         ncInstantiate();
     }
     private void Update() {

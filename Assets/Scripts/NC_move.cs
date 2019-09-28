@@ -11,6 +11,8 @@ public class NC_move : MonoBehaviour
     private void Awake() {
         mmObj = GameObject.FindWithTag("MainManager");
         mm = mmObj.GetComponent<MainManager>();
+        InvokeRepeating("Turn", 1.0f, 5.0f);
+        InvokeRepeating("Move", 0f, 1.0f);
     }
     void Start(){
         mm.NC = GameObject.FindWithTag("NC");
@@ -18,13 +20,15 @@ public class NC_move : MonoBehaviour
     }
 
     void FixedUpdate(){
-            float rx = Random.Range(1.0f, -1.0f);
-            float ry = Random.Range(1.0f, -1.0f);
-            Vector2 ncDirec = new Vector2(rx * 10, ry * 10);
-            ncRigid.AddForce(ncDirec);
-            
+          
     }
-    private void OnCollisionEnter(Collision collision) {
-        ncRigid.AddTorque(1f);
+    void Turn() {
+        ncRigid.AddTorque(40f);
+    }
+    void Move() {
+        float rx = Random.Range(1.0f, -1.0f);
+        float ry = Random.Range(1.0f, -1.0f);
+        Vector2 ncDirec = new Vector2(rx * 30, ry * 30);
+        ncRigid.AddForce(ncDirec);
     }
 }
