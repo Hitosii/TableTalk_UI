@@ -20,6 +20,9 @@ TagManager:
   - SettingGear
   - MainManager
   - SetCardTemp
+  - ShopName
+  - Center
+  - SetBackground
   layers:
   - Default
   - TransparentFX
@@ -29,8 +32,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Card
+  - Wall
   - 
   - 
   - 

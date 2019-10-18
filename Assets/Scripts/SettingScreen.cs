@@ -10,6 +10,7 @@ public class SettingScreen : MonoBehaviour
     float stoper=0,time = 0;//stoper:歯車の回転制限,time:性能による動作調整用
     GameObject sct,sc;
     GameObject setGear;
+    GameObject setBackground;
     private void Awake() {
         mmObj = GameObject.FindWithTag("MainManager");
         mm = mmObj.GetComponent<MainManager>();
@@ -22,7 +23,7 @@ public class SettingScreen : MonoBehaviour
         sc = GameObject.FindWithTag("SettingContents");//設定タイトル内の詳細文字
         sct = GameObject.FindWithTag("SettingContentsT");//設定タイトル文字
         setGear = GameObject.FindWithTag("SettingGear");//設定画面歯車
-
+        setBackground = GameObject.FindWithTag("SetBackground");
         s_Falser();
 
     }
@@ -54,20 +55,22 @@ public class SettingScreen : MonoBehaviour
             setGear.transform.Rotate(0, 0, 10);
         }
     }
-    //中身アクティブ化メソッド
+    //中身非アクティブ化メソッド
     void s_Falser() {
         mm.SettingTitle.SetActive(false);
         sc.SetActive(false);
         sct.SetActive(false);
         setGear.SetActive(false);
         mm.SetCardTemp.SetActive(false);
+        setBackground.SetActive(false);
     }
-    //中身非アクティブ化メソッド
+    //中身アクティブ化メソッド
     void s_Activer() {
         mm.SettingTitle.SetActive(true);
         sc.SetActive(true);
         sct.SetActive(true);
         setGear.SetActive(true);
         mm.SetCardTemp.SetActive(true);
+        setBackground.SetActive(true);
     }
 }

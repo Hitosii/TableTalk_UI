@@ -35,18 +35,18 @@ public class MainManager : MonoBehaviour
     private string iText;
 
     //以下簡易プロパティ
-    
+
     //主要データプロパティ
     public string NounText {
         get {
             return nounText;
         }
-        set{
+        set {
             if (value != null) {
                 this.nounText = value;
             }
         }
-        
+
     }
     public string IText {
         get {

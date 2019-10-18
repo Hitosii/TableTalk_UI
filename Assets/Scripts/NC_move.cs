@@ -6,29 +6,28 @@ public class NC_move : MonoBehaviour
 {
     GameObject mmObj;
     MainManager mm;
-    Rigidbody2D ncRigid;
+    public Rigidbody2D ncRigid;
+    GameObject CenterPoint;
     float timig=0;
     private void Awake() {
         mmObj = GameObject.FindWithTag("MainManager");
         mm = mmObj.GetComponent<MainManager>();
-        InvokeRepeating("Turn", 1.0f, 5.0f);
+        CenterPoint = GameObject.FindWithTag("Center");
         InvokeRepeating("Move", 0f, 1.0f);
     }
     void Start(){
-        mm.NC = GameObject.FindWithTag("NC");
-        ncRigid = mm.NC.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate(){
-          
+        //中心を向く動作
+        Vector3 diff = (CenterPoint.transform.position - ncRigid.gameObject.transform.position);
+        ncRigid.gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, diff);
     }
-    void Turn() {
-        ncRigid.AddTorque(40f);
-    }
+    
     void Move() {
         float rx = Random.Range(1.0f, -1.0f);
         float ry = Random.Range(1.0f, -1.0f);
-        Vector2 ncDirec = new Vector2(rx * 30, ry * 30);
+        Vector2 ncDirec = new Vector2(rx * 50, ry * 50);
         ncRigid.AddForce(ncDirec);
     }
 }
